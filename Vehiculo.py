@@ -18,3 +18,10 @@ class Bicicleta(Vehiculo): #child class
         self.tipo = tipo
     def __str__(self):
         return f"{super().__str__()}, Tipo: {self.tipo}"
+
+class Moto(Vehiculo):
+    def __init__(self,color,ruedas,potencia) -> None:
+        super().__init__(color,ruedas)
+        self.potencia = potencia
+    def __str__(self):
+        return f"{super().__str__()}, Potencia: {self.potencia}"
