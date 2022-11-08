@@ -9,32 +9,35 @@ def calculate_expression(L,position):
     j = 0
     value = link.access(L,position)
 
-    for h in range(len(value)):
-        if value[h] == "+":
-            operator = value[h]
-        elif value[h] == "-":
-            operator = value[h]
-        elif value[h] == "/":
-            operator = value[h]
-        elif value[h] == "*":
-            operator = value[h]
+    if value != None:
+        for h in range(len(value)):
+            if value[h] == "+":
+                operator = value[h]
+            elif value[h] == "-":
+                operator = value[h]
+            elif value[h] == "/":
+                operator = value[h]
+            elif value[h] == "*":
+                operator = value[h]
 
-    while (value[j] != operator):
-        firstPart = firstPart + value[j]
-        j += 1
+        while (value[j] != operator):
+            firstPart = firstPart + value[j]
+            j += 1
 
-    for i in range(j+1,len(value)):
-        secondPart = secondPart + value[i]
-    
-    firstPart = int(firstPart)
-    secondPart = int(secondPart)
+        for i in range(j+1,len(value)):
+            secondPart = secondPart + value[i]
+        
+        firstPart = int(firstPart)
+        secondPart = int(secondPart)
 
-    if operator == "+":
-        return firstPart+secondPart
-    elif operator == "-":
-        return firstPart-secondPart
-    elif operator == "*":
-        return firstPart*secondPart
-    elif operator == "/":
-        return trunc(firstPart/secondPart)
+        if operator == "+":
+            return firstPart+secondPart
+        elif operator == "-":
+            return firstPart-secondPart
+        elif operator == "*":
+            return firstPart*secondPart
+        elif operator == "/":
+            return trunc(firstPart/secondPart)
+    else:
+        return None
 
