@@ -2,42 +2,20 @@ import linkedlist as link
 from algo1 import *
 from mylib import *
 
-def calculate_expression(L,position):
-    operator = ""
-    firstPart = ""
-    secondPart = ""
-    j = 0
-    value = link.access(L,position)
-
-    if value != None:
-        for h in range(len(value)):
-            if value[h] == "+":
-                operator = value[h]
-            elif value[h] == "-":
-                operator = value[h]
-            elif value[h] == "/":
-                operator = value[h]
-            elif value[h] == "*":
-                operator = value[h]
-
-        while (value[j] != operator):
-            firstPart = firstPart + value[j]
-            j += 1
-
-        for i in range(j+1,len(value)):
-            secondPart = secondPart + value[i]
-        
-        firstPart = int(firstPart)
-        secondPart = int(secondPart)
-
-        if operator == "+":
-            return firstPart+secondPart
-        elif operator == "-":
-            return firstPart-secondPart
-        elif operator == "*":
-            return firstPart*secondPart
-        elif operator == "/":
-            return trunc(firstPart/secondPart)
+def isPermutation(S,T):
+    currentS = S.head
+    currentT = T.head
+    aux = None
+    cont = 0
+    areEqual = link.areEqual(S,T)
+    if areEqual == False:    
+        while currentS != None:
+            aux = link.search(S,currentT.element)
+            if aux != None:
+                cont += 1
+            currentS = currentS.nextNode
+            currentT = currentT.nextNode
+        if aux == link.length(S): return True 
+        else: return False
     else:
-        return None
-
+        return False

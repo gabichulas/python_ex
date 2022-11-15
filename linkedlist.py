@@ -100,3 +100,37 @@ def revert(L):
 		add(newL, current.value)
 		current = current.nextNode
 	return newL
+
+def areEqual(L,T):
+  len1 = length(L)
+  len2 = length(T)
+  v1 = Array(len1,0)
+  v2 = Array(len2,0)
+  cont1 = 0
+  cont2 = 0
+  contEqual = 0
+  current1 = L.head
+  current2 = T.head
+  if len1 == 0 and len2 == 0:
+    return False
+  elif len1 == len2:
+    while current1 != None:
+      v1[cont1] = current1.value
+      cont1 += 1
+      current1 = current1.nextNode
+  
+    while current2 != None:
+      v2[cont2] = current2.value
+      cont2 += 1
+      current2 = current2.nextNode
+  
+    for i in range(len1):
+      if v1[i] == v2[i]:
+        contEqual += 1
+
+    if contEqual == len1:
+      return True
+    else:
+      return False
+  else:
+    return False
